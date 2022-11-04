@@ -71,7 +71,6 @@ public final class CreateInstanceModel {
 	public static List<Issue> validateModel(Resource[] resources, OutputSchema out) {
 		List<Issue> issues = new ArrayList<Issue>();
 		for (final Resource resource : resources) {
-			// Validation
             IResourceValidator validator = ((XtextResource) resource).getResourceServiceProvider()
                     .getResourceValidator();
 //            CustomValidation validator = new CustomValidation();
