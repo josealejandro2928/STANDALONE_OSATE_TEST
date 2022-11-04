@@ -38,7 +38,6 @@ public final class CreateInstanceModel {
     private static int id = -1; // OPTIONAL ID
 
 	public static void printModel(Resource[] resources) {
-		// Print the model objects
 		System.out.println();
 		System.out.println("Traversing...");
 		for (final Resource resource : resources) {

@@ -1,0 +1,1 @@
+## Standalone OSATE examples for instantiation and manipulation of .addl models
