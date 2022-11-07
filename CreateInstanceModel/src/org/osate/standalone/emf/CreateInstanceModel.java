@@ -162,6 +162,7 @@ public final class CreateInstanceModel {
 						final SystemInstance systemInstance = InstantiateModel.instantiate(systemImpl);
                         output.pathXMLFile = saveModelToXMI(systemInstance, rs, args[URI_XMI_PATH],
                                 parentDirectoryName);
+                        output.isSavedTheModel = true;
 					}
 				} catch (final Exception e) {
 					e.printStackTrace();
@@ -191,6 +192,7 @@ class OutputSchema {
 	String pathAADLFile;
 	String modelName;
     boolean isParsingSucceeded;
+    boolean isSavedTheModel;
 
 	OutputSchema() {
 		this.errors = new ArrayList<String>();
@@ -198,6 +200,7 @@ class OutputSchema {
 		this.pathXMLFile = "";
 		this.modelName = "";
         this.isParsingSucceeded = true;
+        this.isSavedTheModel = false;
 	}
 
     public String filterCharacters(String src) {
@@ -213,9 +216,10 @@ class OutputSchema {
 		try {
             this.errors = this.errors.stream().map(x -> filterCharacters(x)).collect(Collectors.toList());
             src = "modelName: " + this.modelName + "\n" +
+                    "isParsingSucceeded: " + this.isParsingSucceeded + "\n" +
+                    "isSavedTheModel: " + this.isSavedTheModel + "\n" +
                     "pathAADLFile: " + this.pathAADLFile + "\n" +
                     "pathXMLFile: " + this.pathXMLFile + "\n" +
-                    "isParsingSucceeded: " + this.isParsingSucceeded + "\n" +
                     "errors: " + this.errors + "\n";
             return src;
 		} catch (Exception e) {
